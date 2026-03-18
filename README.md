@@ -4,7 +4,7 @@
 
 **DevOps Engineer** · Cloud Infrastructure
 
-Building reliable systems, automating everything, and contributing to open source.
+Passionate about automation, developer experience, and exploring new technologies.
 
 [![GitHub followers](https://img.shields.io/github/followers/alexgim961101?style=flat&logo=github&label=Follow)](https://github.com/alexgim961101)
 
@@ -72,9 +72,6 @@ Building reliable systems, automating everything, and contributing to open sourc
 &nbsp;
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=alexgim961101&layout=compact&theme=tokyonight&hide_border=true&langs_count=6" height="170" />
 
-<br/>
-
-[![GitHub Streak](https://streak-stats.demolab.com/?user=alexgim961101&theme=tokyonight&hide_border=true)](https://github.com/alexgim961101)
 
 </div>
 

@@ -23,20 +23,35 @@ jobs:
             --jq '.items[] | "\(.repository_url | split("/") | .[-2:] | join("/"))|\(.title)|\(.html_url)"' \
             > /tmp/contributions.txt
 
-          # 테이블 헤더
-          {
-            echo "| Project | Description | PR |"
-            echo "|:--------|:------------|:---|"
-          } > /tmp/table.md
+          # 같은 레포의 PR을 한 행으로 그룹핑하여 테이블 생성
+          python3 - <<'PYEOF' > /tmp/table.md
+          import sys
+          from collections import OrderedDict
 
-          # 팀 프로젝트/스터디 레포 제외 필터
-          while IFS='|' read -r repo title url; do
-            case "$repo" in
-              likelion-*|mooh2jj/*|mule-heo/*) continue ;;
-            esac
-            pr_num=$(basename "$url")
-            echo "| [${repo}](https://github.com/${repo}) | ${title} | [#${pr_num}](${url}) |" >> /tmp/table.md
-          done < /tmp/contributions.txt
+          repos = OrderedDict()
+          exclude = ("likelion-", "mooh2jj/", "mule-heo/")
+
+          with open("/tmp/contributions.txt") as f:
+              for line in f:
+                  line = line.strip()
+                  if not line:
+                      continue
+                  repo, title, url = line.split("|", 2)
+                  if any(repo.startswith(e) for e in exclude):
+                      continue
+                  pr_num = url.rstrip("/").split("/")[-1]
+                  pr_link = f"[#{pr_num}]({url})"
+                  if repo not in repos:
+                      repos[repo] = {"title": title, "prs": [pr_link]}
+                  else:
+                      repos[repo]["prs"].append(pr_link)
+
+          print("| Project | Description | PR |")
+          print("|:--------|:------------|:---|")
+          for repo, info in repos.items():
+              prs = " · ".join(info["prs"])
+              print(f"| [{repo}](https://github.com/{repo}) | {info['title']} | {prs} |")
+          PYEOF
 
           # README의 마커 사이 내용 교체
           awk '
