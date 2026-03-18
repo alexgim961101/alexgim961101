@@ -1,0 +1,55 @@
+name: Update Open Source Contributions
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'  # 매주 월요일 UTC 00:00
+  workflow_dispatch:       # 수동 실행
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch merged PRs and update README
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # 본인 레포가 아닌 곳에 머지된 PR 검색
+          gh api "search/issues?q=author:alexgim961101+type:pr+is:merged+-user:alexgim961101&per_page=100" \
+            --jq '.items[] | "\(.repository_url | split("/") | .[-2:] | join("/"))|\(.title)|\(.html_url)"' \
+            | sort -u > /tmp/contributions.txt
+
+          # 테이블 헤더
+          {
+            echo "| Project | Description | PR |"
+            echo "|:--------|:------------|:---|"
+          } > /tmp/table.md
+
+          # 팀 프로젝트/스터디 레포 제외 필터
+          while IFS='|' read -r repo title url; do
+            case "$repo" in
+              likelion-*|mooh2jj/*|mule-heo/*) continue ;;
+            esac
+            pr_num=$(basename "$url")
+            echo "| [${repo}](https://github.com/${repo}) | ${title} | [#${pr_num}](${url}) |" >> /tmp/table.md
+          done < /tmp/contributions.txt
+
+          # README의 마커 사이 내용 교체
+          awk '
+            /<!-- CONTRIBUTIONS_START -->/{print; while((getline line < "/tmp/table.md") > 0) print line; skip=1; next}
+            /<!-- CONTRIBUTIONS_END -->/{skip=0}
+            !skip
+          ' README.md > README.tmp && mv README.tmp README.md
+
+      - name: Commit and push if changed
+        run: |
+          git diff --quiet && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git commit -m "docs: auto-update open source contributions"
+          git push

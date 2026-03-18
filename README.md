@@ -2,7 +2,7 @@
 
 # Hey there, I'm Alex (김지현) 👋
 
-**Software Engineer** · DevOps & Cloud Infrastructure
+**DevOps Engineer** · Cloud Infrastructure
 
 Building reliable systems, automating everything, and contributing to open source.
 
@@ -30,20 +30,24 @@ Building reliable systems, automating everything, and contributing to open sourc
 ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazonwebservices&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+![Bitbucket](https://img.shields.io/badge/Bitbucket-0052CC?style=for-the-badge&logo=bitbucket&logoColor=white)
 
 **Backend**
 
 ![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)
 
 ---
 
 ### 🌍 Open Source Contributions
 
+<!-- CONTRIBUTIONS_START -->
 | Project | Description | PR |
 |:--------|:------------|:---|
 | [percona/percona-backup-mongodb](https://github.com/percona/percona-backup-mongodb) | Fix silent hang in flush when `nodeShutdown` returns non-recoverable error | [#1267](https://github.com/percona/percona-backup-mongodb/pull/1267) |
 | [cjng96/gat](https://github.com/cjng96/gat) | CentOS support & git strategy CLI option | [#6](https://github.com/cjng96/gat/pull/6) · [#8](https://github.com/cjng96/gat/pull/8) · [#10](https://github.com/cjng96/gat/pull/10) · [#14](https://github.com/cjng96/gat/pull/14) |
 | [cjng96/sermon](https://github.com/cjng96/sermon) | Alert level feature | [#4](https://github.com/cjng96/sermon/pull/4) |
+<!-- CONTRIBUTIONS_END -->
 
 ---
 
