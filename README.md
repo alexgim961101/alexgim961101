@@ -69,6 +69,11 @@ Passionate about automation, developer experience, and exploring new technologie
 &nbsp;
 <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=alexgim961101&layout=compact&theme=tokyonight&hide_border=true&langs_count=6" height="170" />
 
+<br/>
+
+### 🏆 Baekjoon
+
+[![Solved.ac Profile](http://mazassumnida.wtf/api/v2/generate_badge?boj=alexgim)](https://solved.ac/alexgim)
 
 </div>
 
