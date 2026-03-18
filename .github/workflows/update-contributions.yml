@@ -18,10 +18,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # 본인 레포가 아닌 곳에 머지된 PR 검색
-          gh api "search/issues?q=author:alexgim961101+type:pr+is:merged+-user:alexgim961101&per_page=100" \
+          # 본인 레포가 아닌 곳에 머지된 PR 검색 (최신순 정렬)
+          gh api "search/issues?q=author:alexgim961101+type:pr+is:merged+-user:alexgim961101&sort=updated&order=desc&per_page=100" \
             --jq '.items[] | "\(.repository_url | split("/") | .[-2:] | join("/"))|\(.title)|\(.html_url)"' \
-            | sort -u > /tmp/contributions.txt
+            > /tmp/contributions.txt
 
           # 테이블 헤더
           {
