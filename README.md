@@ -44,10 +44,7 @@ Passionate about automation, developer experience, and exploring new technologie
 |:--------|:------------|:---|
 | [percona/percona-backup-mongodb](https://github.com/percona/percona-backup-mongodb) | PBM-1721: Fix silent hang in flush when nodeShutdown returns non-recoverable error | [#1267](https://github.com/percona/percona-backup-mongodb/pull/1267) |
 | [cjng96/sermon](https://github.com/cjng96/sermon) | Alert level feature | [#4](https://github.com/cjng96/sermon/pull/4) |
-| [cjng96/gat](https://github.com/cjng96/gat) | gat: Support for CentOS in getArch | [#14](https://github.com/cjng96/gat/pull/14) |
-| [cjng96/gat](https://github.com/cjng96/gat) | Support centos by function | [#10](https://github.com/cjng96/gat/pull/10) |
-| [cjng96/gat](https://github.com/cjng96/gat) | gat: supprt centOS by dictionary | [#8](https://github.com/cjng96/gat/pull/8) |
-| [cjng96/gat](https://github.com/cjng96/gat) | added git strategy with a command line parameter option | [#6](https://github.com/cjng96/gat/pull/6) |
+| [cjng96/gat](https://github.com/cjng96/gat) | gat: Support for CentOS in getArch | [#14](https://github.com/cjng96/gat/pull/14) · [#10](https://github.com/cjng96/gat/pull/10) · [#8](https://github.com/cjng96/gat/pull/8) · [#6](https://github.com/cjng96/gat/pull/6) |
 <!-- CONTRIBUTIONS_END -->
 
 ---
